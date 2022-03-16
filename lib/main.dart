@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'component/HttpService.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -49,6 +51,24 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final HttpService http = HttpService();
+  @override
+  void initState() {
+    super.initState();
+    getData();
+    // WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
+  }
+
+  void getData() {
+    http.get("entries").then((res) {
+      print("res = $res");
+    });
+  }
+
+  @override
+  dispose() {
+    super.dispose();
+  }
 
   void _incrementCounter() {
     setState(() {
