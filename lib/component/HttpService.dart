@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -8,7 +9,7 @@ class HttpService {
   HttpService.internal();
   factory HttpService() => _instance;
 
-  final LocalStorage storage = LocalStorage('onesmile');
+  final LocalStorage storage = LocalStorage('myapp');
   Map<String, String> headers = {};
   final JsonDecoder _decoder = const JsonDecoder();
   static const _baseUrl = "https://api.publicapis.org/";
